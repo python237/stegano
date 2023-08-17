@@ -1,0 +1,104 @@
+<DOCTYPE html>
+<html>
+    <head>
+    <style>
+        .mojFooter{
+    background-color: #f8f8f8;
+    color: #00a651;
+    padding-top: 0px;
+    border-top: 1px solid #e7e7e7;
+    margin-bottom: 0px;
+}
+
+.bottom-footer{
+    border-top: 1px solid #00a651;
+    margin-top: 0px;
+    padding-top: 7px;
+    color: #00a651;
+
+}
+
+.footer-nav li{
+    display: inline;
+    padding: 0px 40px;
+}
+
+.footer-nav a{
+    color: grey;
+    text-decoration: none;
+}
+    </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <title>Steganography in python</title>
+    </head>
+    <body>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">STEGANOGRAPHY</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="/decode">Decode</a></li>
+    </ul>
+  </div>
+</nav>
+  
+        <p> <h1 align="center">Upload an image to encode your message !!!</h1></p>
+        <hr>
+            <div class="container">
+                <div class="row">
+                   <p>
+                        {% with messages = get_flashed_messages()%}
+                            {% if messages %}
+                             <div class="alert alert-success alert-dismissible">
+                               <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                                {%for message in messages%}
+                                    <p>{{message}}</p>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        {% endwith %}
+                    </p>
+                    <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Informations </h3>
+                            </div>
+                            <div class="panel-body">
+                                {%if filename %}
+                                    <img src="{{filename}}" class="card-img-top" >
+                                {% endif%}
+                                {%if msg %}
+                                    {{msg}}
+                                {% endif%}
+                            </div>
+                    </div> 
+                    <form class="row g-3" method="post" action="/" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Choose Your PNG Image</label>
+                            <input class="form-control" type="file" id="formFile" name="file">
+                        </div>
+                          <div class="form-group">
+                            <label for="exampleFormControlTextarea1">Enter Your Message</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="mes" style="resize: none;"></textarea>
+                        </div>
+                        <br>
+                        <input type="submit" value="Encode" class="btn btn-primary btn-lg">
+                    </form>
+                </div>
+                   <footer class="mojFooter">
+                <font face="Roboto Condensed" size="4"> <center>
+                <div class="container">
+                    <div class="row" style="margin-top: 7px;">
+                         <p> &nbsp; &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp; &copy; Copyright Python237.</p>
+                    </div>
+                </div>
+                </font> </center>
+            </footer>
+            </div>
+            
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </body>
+</html>
